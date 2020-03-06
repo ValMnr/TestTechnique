@@ -1,24 +1,16 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { PortraitCard } from './PortraitCard.js'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
       </header>
+      <div> <PortraitCard cardMode="display" id="1" name="jean jean" thumbnail="http://i.annihil.us/u/prod/marvel/i/mg/b/70/4c0035adc7d3a/standard_large.jpg" />
+      </div>
     </div>
   );
 }
