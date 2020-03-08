@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Media } from 'reactstrap';
+import { Row, Col, Card, CardImg, CardBody, CardTitle, CardText, Container } from 'reactstrap';
 
 
 
-export class PortraitCard extends Component {
+class PortraitCard extends Component {
     constructor(props) {
         super(props);
 
@@ -17,20 +17,25 @@ export class PortraitCard extends Component {
     render() {
         return (
             <div>
-                <Row >
-                    <Col>
-                        <img
-                            src={this.props.thumbnail}
-                            alt={this.props.name} ></img>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <h1>{this.props.name}</h1>
-                    </Col>
-                </Row>
+                <Container>
+                    <Row>
+                        <Col>
+                            <Card>
+                                <CardImg className="thumbnail"
+                                    src={this.props.thumbnail}
+                                    alt={this.props.name} >
+                                </CardImg>
+                                <CardBody>
+                                    <CardText>{this.props.name}</CardText>
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
 
         )
     };
 };
+
+export default PortraitCard;
