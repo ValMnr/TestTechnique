@@ -1,5 +1,5 @@
 # Use a lighter version of Node as a parent image
-FROM node:latest
+FROM mhart/alpine-node:8.11.4
 # Set the working directory to /client
 WORKDIR /client
 # copy package.json into the container at /client
