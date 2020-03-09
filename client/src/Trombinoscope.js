@@ -60,7 +60,7 @@ class Trombinoscope extends Component {
 
 
     let dispList = this.state.listCharacters.map((card, index) =>
-  <Col sm="6" md="4" lg="3" xl="3">
+      <Col sm="6" md="4" lg="3" xl="3">
 
         <PortraitCard id={card.id} name={card.name} thumbnail={card.thumbnail} />
       </Col>
@@ -79,51 +79,54 @@ class Trombinoscope extends Component {
       <div>
 
         <Row className="header">
-          <Col>
+          <Col >
             <h1>MARVEL TROMBINOSCOPE</h1>
           </Col>
         </Row>
 
-        <Row>
-          <Col>
+        <Row className="trombinoscope">
+            <Col className="justify-content-center">
+            
+       
+            <Container className="trombi-container" >
+              {this.state.isLoading ?
+                (<Row >
+                  <Col >
 
-        <div className="trombi-container">
-          <Container>
-
-            {this.state.isLoading ?
-              (<Row>
-                  <ReactLoading type={"spinningBubbles"} color={"blue"} height="40vh" width="40vw" margin="0"/>
-                </Row>) 
+                  <ReactLoading type={"bars"} color={"blue"} height="40vh" width="40vw" />
+                  </Col>
+                  </Row>
+                )
                 : this.displayCards()}
 
-          </Container>
-        </div>
-        </Col>
+            </Container>
+            </Col>
         </Row>
 
-    
 
-          <Row className="navigation-bar">
-            <Col xs="5">
-            </Col>
 
-            <Col >
-              <div>
-                <Button key={this.state.currentPage - 1} id={this.state.currentPage - 1} onClick={this.handlePageChange} disabled={this.state.currentPage <= 1 ? true : false} >{this.state.currentPage - 1}</Button>
-              </div>
-            </Col>
-            <Col>
-              <div>
-                <Button  >{this.state.currentPage}</Button>
-              </div>
-            </Col>
-            <Col>
-              <div>
-                <Button size="lg" key={this.state.currentPage + 1} id={this.state.currentPage + 1} onClick={this.handlePageChange} >{this.state.currentPage + 1}</Button>
-              </div>
-            </Col>
-            <Col xs="5" ></Col>
+        <Row className="navigation-bar">
+          <Container>
+                  <Row>
+          <Col >
+            <div>
+              <Button key={this.state.currentPage - 1} id={this.state.currentPage - 1} onClick={this.handlePageChange} disabled={this.state.currentPage <= 1 ? true : false} >{this.state.currentPage - 1}</Button>
+            </div>
+          </Col>
+          <Col>
+            <div>
+              <Button  >{this.state.currentPage}</Button>
+            </div>
+          </Col>
+          <Col>
+            <div>
+              <Button size="lg" key={this.state.currentPage + 1} id={this.state.currentPage + 1} onClick={this.handlePageChange} >{this.state.currentPage + 1}</Button>
+            </div>
+          </Col>
           </Row>
+          </Container>
+
+        </Row>
 
 
       </div>

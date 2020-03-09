@@ -26,3 +26,20 @@
     transform: rotate(360deg);
   }
 }
+li{display:inline-block;}
+
+.portrait-card {
+  padding: 20px;
+  border-radius: 6px;
+  border-width: 1px;
+  border-color: greenyellow;
+}
+
+.portrait-card.thumbnail{
+  background-color: aquamarine;
+  border: solid,2, grey ;
+  padding: 5px;
+}
+.thumbnail {
+  object-fit: cover;
+}
