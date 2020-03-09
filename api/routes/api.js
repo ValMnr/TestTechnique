@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
   var hash = md5(toString(currentTimestamp)+apiPrivateKey+apiPublicKey)
   console.log(req.query.page)
 
-  var offsetResultBy = (req.query.page -1) *20
+  var offsetResultBy = (req.query.page-1) *20
   
 
   var marvelApiEndpoint = "https://gateway.marvel.com/v1/public/characters?ts="+toString(currentTimestamp)+"&apikey="+apiPublicKey+"&hash="+hash+"&limit=20"+"&offset="+offsetResultBy
@@ -41,10 +41,11 @@ router.get('/', function(req, res, next) {
   .then(resJSON => {
     for (var characters in resJSON['data']['results']){
 
+      var currentId = resJSON['data']['results'][characters]['id']
       var currentName = resJSON['data']['results'][characters]['name']
       var currentImageLink = resJSON['data']['results'][characters]['thumbnail']['path'] +"/standard_large."+resJSON['data']['results'][characters]['thumbnail']['extension']
 
-      parse_obj['characters'].push({"name":currentName,"thumbnail":currentImageLink});
+      parse_obj['characters'].push({"id":currentId,"name":currentName,"thumbnail":currentImageLink});
     }    
   })
   .then( ()=>{
