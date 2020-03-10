@@ -29,8 +29,9 @@ class PortraitCard extends Component {
                                     <CardText>{this.props.name}</CardText>
                                 </CardBody>
                             </Card>
-                        </Col>
+                            </Col>
                     </Row>
+                        
                 </Container>
             </div>
 

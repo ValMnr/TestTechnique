@@ -1,45 +1,83 @@
-.App {
+.App{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.container{
+  padding: 10px;
+}
+.row {
+    
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navigation-bar {
+  padding: 10vh;
+}
+
+.content{
+  margin: 15px;
+}
+
+.loading-bar{
+  padding: 20px;
+
+}
+.center-align {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+
+  height:200px;
+  width:100px;
+
 }
 
 
-.App-link {
-  color: #61dafb;
+.header{
+  padding: 20px;
+  background-color:  #ED1D24;
+  text-align: center;
+  font-family: "Gill Extrabold", sans-serif; 
+  font-weight: 900;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.trombinoscope {
+ 
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+
 }
-li{display:inline-block;}
+.button-page  {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  
+}
 
 .portrait-card {
-  padding: 20px;
-  border-radius: 6px;
-  border-width: 1px;
-  border-color: greenyellow;
+  border: solid,3, black ;
+  text-align: center;
+  padding: 5px;
+  font-size: 2.5vh;
+  font-family: "Gill Sans Extrabold", sans-serif; 
+  font-weight: 700;
 }
 
-.portrait-card.thumbnail{
-  background-color: aquamarine;
-  border: solid,2, grey ;
-  padding: 5px;
+.portrait-card:hover {
+  transform: scale(1.1);
+
 }
+.center-screen{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+}
+
+
 .thumbnail {
   object-fit: cover;
 }

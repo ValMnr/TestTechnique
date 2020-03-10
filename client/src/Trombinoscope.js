@@ -27,25 +27,16 @@ class Trombinoscope extends Component {
     } catch (e) {
       console.log("error" + e)
     }
-
   }
-
 
   handlePageChange(event) {
     this.setState({
       currentPage: Number(event.target.id),
       isLoading: true
-    }, () => {
-      this.loadCharacters()
-      console.log("before req page :" + this.state.currentPage)
-
-    })
-
-
+    }, () => { this.loadCharacters() })
   }
 
   loadCharacters = () => {
-    console.log("before req page :" + this.state.currentPage)
 
     fetch('http://localhost:8080/api?page=' + this.state.currentPage)
       .then(res => res.json())
@@ -58,17 +49,13 @@ class Trombinoscope extends Component {
 
   displayCards = () => {
 
-
     let dispList = this.state.listCharacters.map((card, index) =>
-      <Col sm="6" md="4" lg="3" xl="3">
-
+      <Col sm="6" md="4" lg="3" xl="3" className="portrait-card">
         <PortraitCard id={card.id} name={card.name} thumbnail={card.thumbnail} />
       </Col>
 
     );
-
     return (<Row>{dispList}</Row>);
-
   }
 
 
@@ -77,58 +64,46 @@ class Trombinoscope extends Component {
     return (
 
       <div>
-
         <Row className="header">
           <Col >
             <h1>MARVEL TROMBINOSCOPE</h1>
           </Col>
         </Row>
 
-        <Row className="trombinoscope">
-            <Col className="justify-content-center">
-            
-       
-            <Container className="trombi-container" >
-              {this.state.isLoading ?
-                (<Row >
-                  <Col >
+        <div className="content" >
+          {this.state.isLoading ?
+            (
+              <Row className="justify-content-center loading-bar">
+                <Col className="justify-content-center">
+                  <ReactLoading className="center-align" type={"cylon"} color={"red"} height="50vh" width="40vw" align="center" />
 
-                  <ReactLoading type={"bars"} color={"blue"} height="40vh" width="40vw" />
-                  </Col>
-                  </Row>
-                )
-                : this.displayCards()}
+                </Col>
+              </Row>  
+            ) : (
 
-            </Container>
-            </Col>
-        </Row>
+              <Row className="trombinoscope">
+                <Col className="justify-content-center" >
+                  <Container className="trombi-container" >
+                    {this.displayCards()}
+                  </Container>
+                </Col>
+              </Row>
 
-
-
+            )}
+        </div>
         <Row className="navigation-bar">
-          <Container>
-                  <Row>
-          <Col >
-            <div>
-              <Button key={this.state.currentPage - 1} id={this.state.currentPage - 1} onClick={this.handlePageChange} disabled={this.state.currentPage <= 1 ? true : false} >{this.state.currentPage - 1}</Button>
-            </div>
+          <Col className="justify-content-center" >
+            <Container>
+              <Row>
+                <Col >
+                  <Button className="button-page" size="xl" key={this.state.currentPage - 1} id={this.state.currentPage - 1} onClick={this.handlePageChange} disabled={this.state.currentPage <= 1 ? true : false} >{"<"}</Button>
+                  <Button className="button-page" size="xl"  >{this.state.currentPage}</Button>
+                  <Button className="button-page" size="xl" key={this.state.currentPage + 1} id={this.state.currentPage + 1} onClick={this.handlePageChange} >{">"}</Button>
+                </Col>
+              </Row>
+            </Container>
           </Col>
-          <Col>
-            <div>
-              <Button  >{this.state.currentPage}</Button>
-            </div>
-          </Col>
-          <Col>
-            <div>
-              <Button size="lg" key={this.state.currentPage + 1} id={this.state.currentPage + 1} onClick={this.handlePageChange} >{this.state.currentPage + 1}</Button>
-            </div>
-          </Col>
-          </Row>
-          </Container>
-
         </Row>
-
-
       </div>
 
 
