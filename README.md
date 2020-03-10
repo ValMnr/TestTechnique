@@ -2,7 +2,7 @@
 
 
 ## Présentation 
-Trombinoscope composé d'un front React et d'un back Express, les deux dans leur container respectifs
+Trombinoscope composé d'un front React et d'un back Express, les deux dans leur containers respectifs
 
 ##  Instructions de lancement
 
